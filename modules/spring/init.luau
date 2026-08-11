@@ -12,16 +12,13 @@ local TweenService = game:GetService("TweenService")
 local Spring = {}
 Spring.__index = Spring
 
-export type Spring<T> = typeof(setmetatable(
-	{} :: {
-		Current: T,
-		Target: T,
-		Velocity: T,
-		SmoothTime: number,
-		MaxSpeed: number,
-	},
-	Spring
-))
+export type Spring<T> = setmetatable<{
+	Current: T,
+	Target: T,
+	Velocity: T,
+	SmoothTime: number,
+	MaxSpeed: number,
+}, typeof(Spring)>
 
 --[=[
 	Creates a new spring.
